@@ -10,9 +10,9 @@ using Newtonsoft.Json;
 
 namespace AzFunctionAPI
 {
-    public static class Function1
+    public static class Function2
     {
-        [FunctionName("Function1")]
+        [FunctionName("Function2")]
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
             ILogger log)
@@ -27,7 +27,7 @@ namespace AzFunctionAPI
 
             string responseMessage = string.IsNullOrEmpty(name)
                 ? "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response."
-                : $"Hello, {name}. This HTTP triggered function executed successfully.";
+                : $"Hello, {name}. This HTTP triggered function executed successfully. You are in function 2";
 
             return new OkObjectResult(responseMessage);
         }
